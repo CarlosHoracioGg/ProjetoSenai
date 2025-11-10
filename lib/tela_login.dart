@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'usuario.dart';
+import 'tela_home.dart';
+import 'banco/usuario_dao.dart';
 
 class TelaLogin extends StatelessWidget{
   TelaLogin({super.key});
@@ -8,11 +11,12 @@ class TelaLogin extends StatelessWidget{
 
   @override
 
-  Widget build(BuildContext){
+  Widget build(BuildContext context){
     return Scaffold(
       backgroundColor:  Color(0xFF400F0F),
       appBar: AppBar(title: const Text('Login'),
-      backgroundColor:  Color(0xFF590F0F),
+      titleTextStyle: TextStyle( color:Color(0xFFFFFFFF)),
+      backgroundColor: Color(0xAA590F0F),
       ),
         body: Padding(padding: const EdgeInsets.all(20),
         child: Column(
@@ -20,19 +24,31 @@ class TelaLogin extends StatelessWidget{
           children: [
 
             TextField(
-              decoration: const InputDecoration(labelText: 'Login'),
-              controller: loginController
+              style: TextStyle(color: Color(0xFFFFFFFF)),
+              decoration: const InputDecoration(labelText: 'Login', labelStyle: TextStyle(color: Color(0xFFFFFFFF))),
+              controller: loginController,
             ),
             const SizedBox(height: 20),
             TextField(
-              decoration: const InputDecoration(labelText: 'Senha'),
+              style: TextStyle(color: Color(0xFFFFFFFF)),
+              decoration: const InputDecoration(labelText: 'Senha', labelStyle: TextStyle(color: Color(0xFFFFFFFF), fontSize: 15)),
               obscureText: true,
               controller: senhaController,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
 
             ElevatedButton(onPressed: ()async{
-
+              final sucesso = await UsuarioDAO.autenticar(loginController.text, senhaController.text);
+              
+              if(sucesso){
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context) => TelaHome())
+                );
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("Login ou sennha inválidos."))
+                );
+              }
 
             }, child: Text('Realizar Login'))
 
