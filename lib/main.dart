@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tst/tela_login.dart';
-
+import 'package:tst/tela_cadastro.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const MyApp());
 }
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // desativa o modo banner ( que exibe conteudo).
       debugShowCheckedModeBanner: false,
-      home: TelaLogin(),
+      home: TelaCadastro(),
     );
   }
 }
