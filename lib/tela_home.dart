@@ -7,9 +7,10 @@ class TelaHome extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-          title: const Text("Tela Home"),
+        title: const Text("Tela Home"),
 
       ),
+
       drawer:Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -27,23 +28,41 @@ class TelaHome extends StatelessWidget{
 
 
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-                height: 60,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              //logo
+              Container(
+                height: 90,
                 width: double.infinity,
-              color: Color(0xFF590F0F),
-            ),
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.blue,
-            ),
+                color: Color(0xFF590F0F),
 
-          ]
+                child: Image.asset(
+                  'assets/img/Paraisoa.png',
+                  fit: BoxFit.contain,
+                  // ou cover, fill, etc.
+                ),
+              ),
+              Container(
+                height: 360,
+                width: double.infinity,
+                color: Colors.green,
+              ),
+
+              Container(
+                width: double.infinity,
+                height: 20,
+                color: Color(0xFF590F0F),
+              ),
+              Container(
+                height: 364,
+                width: double.infinity,
+                color: Colors.green,
+              ),
+            ]
         ),
       ),
     );
   }
+
 
 }
