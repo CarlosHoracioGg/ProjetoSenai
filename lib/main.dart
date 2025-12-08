@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tst/Telas/tela_cad_nactipo.dart';
 import 'package:tst/Telas/tela_cad_produto.dart';
+import 'package:tst/Telas/tela_cadastro.dart';
+import 'package:tst/Telas/tela_home.dart';
+import 'package:tst/Telas/tela_login.dart';
 
 
 void main() {
@@ -17,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // desativa o modo banner ( que exibe conteudo).
       debugShowCheckedModeBanner: false,
-      home: TelaCadNT(),
+      home: TelaHome(),
 
     );
   }

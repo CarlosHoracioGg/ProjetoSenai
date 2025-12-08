@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:tst/Telas/tela_cad_produto.dart';
-
+import 'package:tst/banco/nacionalidade_dao.dart';
+import 'package:tst/banco/tipo_dao.dart';
 
 class TelaCadNT extends StatelessWidget{
   TelaCadNT({super.key});
