@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'usuario.dart';
+import '../usuario.dart';
 import 'tela_home.dart';
-import 'banco/usuario_dao.dart';
+import '../banco/usuario_dao.dart';
 
 class TelaLogin extends StatelessWidget{
   TelaLogin({super.key});
@@ -13,10 +13,10 @@ class TelaLogin extends StatelessWidget{
 
   Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor:  Color(0xFF400F0F),
+      backgroundColor:  Color(0xFFDBC2A6),
       appBar: AppBar(title: const Text('Login'),
       titleTextStyle: TextStyle( color:Color(0xFFFFFFFF)),
-      backgroundColor: Color(0xAA590F0F),
+      backgroundColor: Color(0xFF414A37),
       ),
         body: Padding(padding: const EdgeInsets.all(20),
         child: Column(
@@ -25,13 +25,13 @@ class TelaLogin extends StatelessWidget{
 
             TextField(
               style: TextStyle(color: Color(0xFFFFFFFF)),
-              decoration: const InputDecoration(labelText: 'Login', labelStyle: TextStyle(color: Color(0xFFFFFFFF))),
+              decoration: const InputDecoration(labelText: 'Login', labelStyle: TextStyle(color: Color(0xFF446C2C), fontSize: 15)),
               controller: loginController,
             ),
             const SizedBox(height: 20),
             TextField(
               style: TextStyle(color: Color(0xFFFFFFFF)),
-              decoration: const InputDecoration(labelText: 'Senha', labelStyle: TextStyle(color: Color(0xFFFFFFFF), fontSize: 15)),
+              decoration: const InputDecoration(labelText: 'Senha', labelStyle: TextStyle(color: Color(0xFF446C2C), fontSize: 15)),
               obscureText: true,
               controller: senhaController,
             ),

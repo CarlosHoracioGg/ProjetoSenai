@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tst/banco/usuario_dao.dart';
-import 'package:tst/tela_login.dart';
+import 'package:tst/Telas/tela_login.dart';
 import 'tela_home.dart';
 
 class TelaCadastro extends StatelessWidget{
@@ -13,31 +13,38 @@ class TelaCadastro extends StatelessWidget{
   
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: const Text("Cadastro")),
+      backgroundColor: Color(0xFFDBC2A6),
+      appBar: AppBar(title: const Text("Cadastro"),
+          titleTextStyle: TextStyle( color:Color(0xFFFFFFFF)),
+          backgroundColor: Color(0xFF414A37)),
       body: Padding(padding: const EdgeInsets.all(40),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextField(
-            decoration: const InputDecoration(labelText: 'Usuario'),
+            style: TextStyle(color: Color(0xFFFFFFFF)),
+            decoration: const InputDecoration(labelText: 'Usuario', labelStyle: TextStyle(color: Color(0xFF446C2C), fontSize: 15)),
             controller: nomeController,
           ),
 
           const SizedBox(height: 20),
           TextField(
-            decoration: const InputDecoration(labelText: 'Login'),
+            style: TextStyle(color: Color(0xFFFFFFFF)),
+            decoration: const InputDecoration(labelText: 'Login', labelStyle: TextStyle(color: Color(0xFF446C2C), fontSize: 15)),
             controller: loginController,
           ),
 
           const SizedBox(height: 20),
           TextField(
-            decoration: const InputDecoration(labelText: 'Senha'),
+            style: TextStyle(color: Color(0xFFFFFFFF)),
+            decoration: const InputDecoration(labelText: 'Senha', labelStyle: TextStyle(color: Color(0xFF446C2C), fontSize: 15)),
             obscureText: true,
             controller: senhaController,
           ),
 
 
           const SizedBox(height: 40),
+          //Botão Cadastro
           ElevatedButton(onPressed: ()async{
             await UsuarioDAO.imprimir();
             final sucesso = await UsuarioDAO.cadastrarUsuario(
@@ -56,18 +63,18 @@ class TelaCadastro extends StatelessWidget{
               context,
               MaterialPageRoute(builder: (context) => TelaHome()),
             );
-          } else {
+          }else {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text("Erro ao cadastrar usuário."),
-                backgroundColor: Colors.red,
-              ),
+              SnackBar(content: Text("Erro ao cadastrar usuário."), backgroundColor: Colors.red,),
             );
           }
+
           await UsuarioDAO.imprimir();
+
           }, child: Text('Cadastrar'),
           ),
 
+          //Botão ir ao Login
           ElevatedButton(onPressed: () async{
             await UsuarioDAO.imprimir();
 
